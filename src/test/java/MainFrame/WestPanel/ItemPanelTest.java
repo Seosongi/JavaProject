@@ -9,4 +9,8 @@ public class ItemPanelTest {
 		new ItemPanel();
 	}
 
+	@Test
+	public void getItemTest() {
+		ItemPanel.
+	}
 }
