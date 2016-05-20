@@ -43,5 +43,9 @@ public class SuccessWordPanel extends JPanel{
 			content[1]=english;
 			model.insertRow(0, content);		
 		}
+		
+		public DefaultTableModel getModel(){
+			return model;
+		}
 	}
 }

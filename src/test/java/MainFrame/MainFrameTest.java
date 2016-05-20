@@ -10,11 +10,9 @@ import MainFrame.MainFrame;
 
 public class MainFrameTest {	
 	
-	@Before	
+	@Test
 	public void newTest(){
 		MainFrame mf = new MainFrame();
-
 	}	
 	
-
 }
