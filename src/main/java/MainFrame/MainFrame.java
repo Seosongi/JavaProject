@@ -75,12 +75,13 @@ public class MainFrame extends JFrame{
 		
 	}
 	
-	void createMenuBar(){
+void createMenuBar(){
 		
 		JMenuBar menuBar=new JMenuBar();
 		JMenu fileMenu=new JMenu("File");
 		JMenu helpMenu=new JMenu("Help");
 		JMenuItem regame=new JMenuItem("Regame");
+		JMenuItem pause=new JMenuItem("Pause");
 		JMenuItem open=new JMenuItem("열기");
 		JMenuItem save=new JMenuItem("저장");
 		JMenuItem exit=new JMenuItem("exit");
@@ -89,6 +90,7 @@ public class MainFrame extends JFrame{
 		
 		//파일 메뉴 생성
 		fileMenu.add(regame);
+		fileMenu.add(pause);
 		//fileMenu.add(open);
 		//fileMenu.add(save);
 		fileMenu.addSeparator();//구분선 추가
@@ -96,11 +98,13 @@ public class MainFrame extends JFrame{
 						
 		//파일 메뉴 단축키 설정
 		regame.setAccelerator(KeyStroke.getKeyStroke('N',InputEvent.CTRL_MASK));
+		pause.setAccelerator(KeyStroke.getKeyStroke('P',InputEvent.CTRL_MASK));
 		//open.setAccelerator(KeyStroke.getKeyStroke('O',InputEvent.CTRL_MASK));
 		//save.setAccelerator(KeyStroke.getKeyStroke('S',InputEvent.CTRL_MASK));
 		exit.setAccelerator(KeyStroke.getKeyStroke('X',InputEvent.CTRL_MASK));
 		
 		//add Listener
+		regame.addActionListener(new FileActionListener());
 		version.addActionListener(new HelpActionListener());
 		developer.addActionListener(new HelpActionListener());
 						
@@ -114,6 +118,35 @@ public class MainFrame extends JFrame{
 				
 		//메뉴바 추가
 		setJMenuBar(menuBar);
+	}
+	
+	class FileActionListener implements ActionListener{
+		public void actionPerformed(ActionEvent e) {
+			JMenuItem item= (JMenuItem) e.getSource();
+			String s=item.getText();
+			
+			if(s.equals("Regame"))
+				{
+
+				JFrame confirm =new JFrame();
+				String message ="다시하시겠습니까?";
+				String regame="Regame";
+				Interface.setPlay(false);
+		
+				int answer=JOptionPane.showConfirmDialog(confirm, message,regame,JOptionPane.YES_NO_OPTION);
+				
+				if(answer==JOptionPane.YES_OPTION){ 
+					StartFrame.StartFrame.mf.dispose();//기존창 닫기
+					new StartFrame.StartFrame();
+					Interface.setPlay(true);
+					
+					}
+				else if(answer==JOptionPane.NO_OPTION){ 
+					Interface.setPlay(true); 
+					
+					}
+				}
+		}
 	}
 	
 	class HelpActionListener implements ActionListener{

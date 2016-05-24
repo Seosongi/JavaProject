@@ -36,7 +36,7 @@ public class StartFrame extends JFrame{
 	private JTable choiceTable;
 	private JTextField userInput;
 		
-	StartFrame(){
+	public StartFrame(){
 		
 		setSize(300,400);
 		setResizable(false);
