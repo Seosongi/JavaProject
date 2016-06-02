@@ -56,10 +56,6 @@ import Interface.GameSet;
 		
 		void sortGrade() throws IOException{//점수 순서대로 정렬 
 			Collections.sort(Users, new NoDescCompare());
-			System.out.printf("\n\n===== 숫자 내림 차순 정렬 =====\n");
-			for (UserInfo temp : Users) {
-				System.out.println(temp.getName());
-			}
 		}
 	
 		static class NoDescCompare implements Comparator<UserInfo> {

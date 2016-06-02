@@ -32,7 +32,6 @@ class CenterPanel extends JPanel{
 			GradePanel(){
 				setVisible(true);
 				setBackground(Color.white);
-				setLayout(new GridLayout(num,4,5,5));
 				
 				setGrade();
 				
@@ -71,17 +70,17 @@ class CenterPanel extends JPanel{
 				nameLabel[i]=new JLabel(name);
 				scores[i]=new JLabel(ScoreFrame.sf.fIO.Users.get(i).getScore().toString());
 
-//				faceLabel[i].setSize(100,100);
-//				faceLabel[i].setLocation(100,100+i*100);
-//				
-//				gradeLabel[i].setSize(100,100);
-//				gradeLabel[i].setLocation(200,100+i*100);
-//				
-//				nameLabel[i].setSize(100,100);
-//				nameLabel[i].setLocation(300, 100+i*100);
-//				
-//				scores[i].setSize(100,100);
-//				scores[i].setLocation(350, 100+i*100);
+				faceLabel[i].setSize(100,100);
+				faceLabel[i].setLocation(100,100+i*100);
+				
+				gradeLabel[i].setSize(100,100);
+				gradeLabel[i].setLocation(200,100+i*100);
+				
+				nameLabel[i].setSize(100,100);
+				nameLabel[i].setLocation(300, 100+i*100);
+				
+				scores[i].setSize(100,100);
+				scores[i].setLocation(350, 100+i*100);
 			
 				add(faceLabel[i]);
 				add(gradeLabel[i]);
