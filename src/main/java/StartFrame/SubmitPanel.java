@@ -68,22 +68,51 @@ public class SubmitPanel extends JPanel{
 						 levelbtn=radiobtn.getFILENAME();
 				}
 				
-				switch(character){
-				case "MUZI.": GlobalGraphic.character=new Color(251,233,13); 
-						GlobalGraphic.path="images/MainFrame/Muzi/";
-						break;
-				case "LYAN.": GlobalGraphic.character=new Color(215,209,137);
-						GlobalGraphic.path="images/MainFrame/Lyan/";
-						break;
-				case "APEACH.": GlobalGraphic.character=new Color(247,171,171);
-						GlobalGraphic.path="images/MainFrame/Apeach/";
-						break;
-				}	
+//				switch(character){
+//				case "MUZI.": GlobalGraphic.character=new Color(251,233,13); 
+//						GlobalGraphic.path="images/MainFrame/Muzi/";
+//						break;
+//				case "LYAN.": GlobalGraphic.character=new Color(215,209,137);
+//						GlobalGraphic.path="images/MainFrame/Lyan/";
+//						break;
+//				case "APEACH.": GlobalGraphic.character=new Color(247,171,171);
+//						GlobalGraphic.path="images/MainFrame/Apeach/";
+//						break;
+//				}	
+				if(character.equals("MUZI."))
+				{
+					GlobalGraphic.character=new Color(251,233,13); 
+					GlobalGraphic.path="images/MainFrame/Muzi/";
+				}
+				else if(character.equals("LYAN."))
+				{
+					 GlobalGraphic.character=new Color(215,209,137);
+					GlobalGraphic.path="images/MainFrame/Lyan/";
+				}
+				else if(character.equals("APEACH."))
+				{
+					 GlobalGraphic.character=new Color(247,171,171);
+					 GlobalGraphic.path="images/MainFrame/Apeach/";
+				}
+					
 				
-				switch(levelbtn){
-					case "levelBtn1": level=1;speed=10; break;
-					case "levelBtn2": level=5;speed=20; break;
-					case "levelBtn3": level=10;speed=30; break;
+//				switch(levelbtn){
+//					case "levelBtn1": level=1;speed=10; break;
+//					case "levelBtn2": level=5;speed=20; break;
+//					case "levelBtn3": level=10;speed=30; break;
+//				}
+				
+				if(levelbtn.equals("levelBtn1"))
+				{
+					 level=1;speed=10;
+				}
+				else if(levelbtn.equals("levelBtn1"))
+				{
+					level=5;speed=20; 
+				}
+				else if(levelbtn.equals("levelBtn3"))
+				{
+					level=10;speed=30;
 				}
 				
 				MainFrame.mf.setContentPane(MainFrame.mf.playPa=new PlayPanel(user,character,level,speed));

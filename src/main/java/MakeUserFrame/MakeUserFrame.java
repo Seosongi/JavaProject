@@ -161,11 +161,18 @@ public class MakeUserFrame extends JFrame{
 					}
 				
 				
-					switch(CHARCTERNAME){
-						case "MuziBtn": chracter="MUZI"; break;
-						case "LyanBtn": chracter="LYAN"; break;
-						case "ApeachBtn": chracter="APEACH"; break;
-					}
+//					switch(CHARCTERNAME){
+//						case "MuziBtn": chracter="MUZI"; break;
+//						case "LyanBtn": chracter="LYAN"; break;
+//						case "ApeachBtn": chracter="APEACH"; break;
+//					}
+					
+					if(CHARCTERNAME.equals("MuziBtn"))
+						chracter="MUZI"; 
+					else if(CHARCTERNAME.equals("LyanBtn"))
+						chracter="LYAN";
+					else if(CHARCTERNAME.equals("ApeachBtn"))
+						chracter="APEACH"; 
 					
 					try {
 						writeUser();

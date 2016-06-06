@@ -36,7 +36,7 @@ public class MainFrame extends JFrame{
 	MainFrame(){
 		setSize(800,550);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setResizable(false);//크기 고정
+		setResizable(false);//�겕湲� 怨좎젙
 		setUndecorated(true);
 		setVisible(true);
 		
@@ -68,13 +68,13 @@ public class MainFrame extends JFrame{
 		
 		menuBar.setPreferredSize(new Dimension(800,30));
 		menuBar.setBackground(Color.LIGHT_GRAY);
-		//파일 메뉴 생성
+		//�뙆�씪 硫붾돱 �깮�꽦
 		fileMenu.add(regame);
 	
-		fileMenu.addSeparator();//구분선 추가
+		fileMenu.addSeparator();//援щ텇�꽑 異붽�
 		fileMenu.add(exit);
 						
-		//파일 메뉴 단축키 설정
+		//�뙆�씪 硫붾돱 �떒異뺥궎 �꽕�젙
 		regame.setAccelerator(KeyStroke.getKeyStroke('N',InputEvent.CTRL_MASK));
 		exit.setAccelerator(KeyStroke.getKeyStroke('X',InputEvent.CTRL_MASK));
 		
@@ -82,15 +82,15 @@ public class MainFrame extends JFrame{
 		version.addActionListener(new HelpActionListener());
 		developer.addActionListener(new HelpActionListener());
 						
-		//도움 메뉴 생성
+		//�룄�� 硫붾돱 �깮�꽦
 		helpMenu.add(version);
 		helpMenu.add(developer);
 				
-		//메뉴를 메뉴바에 등록
+		//硫붾돱瑜� 硫붾돱諛붿뿉 �벑濡�
 		menuBar.add(fileMenu);
 		menuBar.add(helpMenu);
 				
-		//메뉴바 추가
+		//硫붾돱諛� 異붽�
 		setJMenuBar(menuBar);
 	}
 	
@@ -161,18 +161,7 @@ public class MainFrame extends JFrame{
 	}		
 	
 	public static void main(String[] args){
-		System.setProperty("file.encoding","UTF-8");
-		Field charset;
-		try {
-			charset = Charset.class.getDeclaredField("defaultCharset");
-			charset.setAccessible(true);
-			charset.set(null,null);
-			
-		} catch (NoSuchFieldException | SecurityException |IllegalArgumentException | IllegalAccessException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+	
 		mf =new MainFrame();
 	}
 }
