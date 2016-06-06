@@ -2,6 +2,8 @@ package PlayPanel;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -53,7 +55,7 @@ public class PlayPanel extends JPanel{
 		sp= new SouthPanel();
 		ep= new EastPanel();
 		np= new NorthPanel(npPath,"background",800,60);
-		cp= new CenterPanel(cpPath,"background",500,420);
+		cp= new CenterPanel(cpPath,"background",500,420,this);
 		
 		this.setLayout(new BorderLayout());			
 		add(sp,BorderLayout.SOUTH);
@@ -101,6 +103,7 @@ public class PlayPanel extends JPanel{
 	public void speedUp(double up){this.speed+=up;} //속도 업
 	public void setKoreanTurn(){this.turn=true;} //한글 입력 차례로
 	public void setEnglishTurn(){this.turn=false;} //영문 입력 차례로
+	
 	
 	public void levelUp(){
 		level++;
@@ -173,7 +176,7 @@ public class PlayPanel extends JPanel{
 	}
 	
 	//라벨 하나 하나 떨어지는 쓰레드
-	class FallingAni extends Thread{	
+	class FallingAni extends Thread {	
 		
 		public void run(){
 			synchronized(this){

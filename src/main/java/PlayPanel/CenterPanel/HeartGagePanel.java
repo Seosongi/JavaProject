@@ -2,19 +2,27 @@ package PlayPanel.CenterPanel;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 import javax.swing.JProgressBar;
 
 import Graphics.GameFontB;
 import Graphics.GraphicPanel;
+import PlayPanel.PlayPanel;
+import ScoreFrame.ScoreFrame;
 
 public class HeartGagePanel extends GraphicPanel{
 	public HeartGage heartgage=new HeartGage();
-	HeartGagePanel(String path, String FILENAME, int width, int height){
+	public PlayPanel playpanel;
+	HeartGagePanel(String path, String FILENAME, int width, int height,PlayPanel p){
 		super(path,FILENAME,width,height);
 		heartgage=new HeartGage();
 		heartgage.setFont(new GameFontB(10));
 		add(heartgage);
+		
+		this.playpanel=p;
 	}
 	
 	public class HeartGage extends JProgressBar{
@@ -39,7 +47,10 @@ public class HeartGagePanel extends GraphicPanel{
 			setString(value.toString()+"%");	
 			
 			if(value==0){ //체력이 없을 경우	
-				return;
+				{	
+					new ScoreFrame(playpanel);
+					return;
+				}
 			}
 		}
 		
@@ -47,5 +58,6 @@ public class HeartGagePanel extends GraphicPanel{
 			setValue(max);
 			setString(100+"%");
 		}
+	
 	}
 }

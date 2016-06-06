@@ -188,8 +188,9 @@ public class MakeUserFrame extends JFrame{
 			public void writeUser() throws IOException{				
 				BufferedWriter out = new BufferedWriter(new FileWriter("resources/User.txt",true));
 				String user=userInput.getText();				
-			    out.write(chracter + "\t" + user);
-			    out.newLine();			  
+			    out.write(chracter + "\t" + user+"\t");
+			    out.newLine();
+			   	  
 			    out.close();
 			}	
 			
