@@ -32,11 +32,15 @@ import PlayPanel.PlayPanel;
 
 			int i=0;
 			String s;
-				  
+			Integer score;
+			
 			while ((s = in.readLine()) != null) {
 				String[] split = s.split("\t");
-		
-				Users.add(new UserInfo(split[0],split[1],Integer.parseInt(split[2])));
+				if(split.length<2){
+					Users.add(new UserInfo(split[0],split[1],0));
+				}
+				else
+					Users.add(new UserInfo(split[0],split[1],Integer.parseInt(split[2])));
 				i++;
 				
 			}

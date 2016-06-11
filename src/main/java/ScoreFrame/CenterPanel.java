@@ -27,11 +27,7 @@ class CenterPanel extends JPanel{
 		CenterPanel(PlayPanel p){
 			this.p=p;
 			setVisible(true);
-			
-			//character 못받아옴 - Test
-			//GlobalGraphic.character=new Color(215,209,137);
-			GlobalGraphic.character=new Color(247,171,171);	
-			//GlobalGraphic.character=new Color(255,233,13);
+		
 			setBackground(GlobalGraphic.character);
 			
 			setLayout(null);
@@ -42,9 +38,8 @@ class CenterPanel extends JPanel{
 			add(gp);
 			add(mgp);
 			
-			
-			
 		}
+		
 		
 	class GradePanel extends GraphicPanel{
 			

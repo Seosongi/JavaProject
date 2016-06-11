@@ -1,6 +1,10 @@
-MUZI	aaa
-LYAN	bbbbb
-LYAN	cccc
-LYAN	dddd
-LYAN	123
+MUZI	aaa	20
+LYAN	bbbbb	45
+LYAN	cccc	2
+LYAN	dddd	300
+LYAN	123	325
 LYAN	cccc	50
+LYAN	dddd	150
+LYAN	123	50
+LYAN	cccc	100
+LYAN	cccc	0
