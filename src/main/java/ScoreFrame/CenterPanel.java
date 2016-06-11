@@ -53,7 +53,6 @@ class CenterPanel extends JPanel{
 			
 			int num=4;//전체 화면에 표시할 등수 표시 갯수
 			
-			
 			public GradePanel(String path, String FILENAME, int width, int height,CenterPanel p ){
 				super(path,FILENAME,width,height);
 				
@@ -70,6 +69,9 @@ class CenterPanel extends JPanel{
 		
 			void setGrade(){
 			
+			if(ScoreFrame.fIO.getUsersSize()<4)
+				num=ScoreFrame.fIO.getUsersSize();
+				
 			ImageIcon images[]=new ImageIcon[num];
 			ImageIcon gradeImg []=new ImageIcon[num];
 			

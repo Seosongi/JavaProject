@@ -14,10 +14,13 @@ import PlayPanel.PlayPanel;
 		public PlayPanel p;
 		public static List<UserInfo> Users = new ArrayList<UserInfo>();
 		public static UserInfo myUser;
+		int fileLineNumber;
+		
 		FileIO(PlayPanel p) {
 			this.p=p;
 			try {
 				readPlayer();
+				setMyUser();
 				sortGrade();
 			} catch (IOException e) {
 				
@@ -29,8 +32,7 @@ import PlayPanel.PlayPanel;
 		void readPlayer() throws IOException{
 			
 			BufferedReader in = new BufferedReader(new FileReader("resources/Score.txt"));
-
-			int i=0;
+			
 			String s;
 			Integer score;
 			
@@ -43,7 +45,7 @@ import PlayPanel.PlayPanel;
 					Users.add(new UserInfo(split[0],split[1],Integer.parseInt(split[2])));
 				
 				
-				i++;
+				fileLineNumber++;
 				
 			}
 
@@ -51,7 +53,24 @@ import PlayPanel.PlayPanel;
 		
 		}
 		
-		
+		public void setMyUser() throws IOException{
+			BufferedReader in = new BufferedReader(new FileReader("resources/Score.txt"));
+			int i=0;
+			String s=" ";
+			while(i<fileLineNumber)
+			{
+				s=in.readLine();
+			}
+			String[] split = s.split("\t");
+			myUser=new UserInfo(split[0],split[1],Integer.parseInt(split[2]));
+			
+			System.out.println(split[0]+"dddddddada"+split[1]+Integer.parseInt(split[2]));
+			
+			in.close();
+		}
+		public int getUsersSize(){
+			return Users.size();
+		}
 		void sortGrade() throws IOException{//점수 순서대로 정렬 
 			Collections.sort(Users, new NoDescCompare());
 			System.out.printf("\n\n===== 숫자 내림 차순 정렬 =====\n");
