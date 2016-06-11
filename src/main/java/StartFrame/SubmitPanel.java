@@ -74,7 +74,7 @@ public class SubmitPanel extends JPanel{
 						 levelbtn=radiobtn.getFILENAME();
 				}
 				
-				switch(character){
+				/*switch(character){
 				case "MUZI.": GlobalGraphic.character=new Color(251,233,13); 
 						GlobalGraphic.path="images/MainFrame/Muzi/";
 						break;
@@ -84,9 +84,9 @@ public class SubmitPanel extends JPanel{
 				case "APEACH.": GlobalGraphic.character=new Color(247,171,171);
 						GlobalGraphic.path="images/MainFrame/Apeach/";
 						break;
-				}
+				}*/
 				
-		/*		if(character.equals("MUZI."))
+				if(character.equals("MUZI."))
 				{
 					GlobalGraphic.character=new Color(251,233,13); 
 					GlobalGraphic.path="images/MainFrame/Muzi/";
@@ -101,20 +101,20 @@ public class SubmitPanel extends JPanel{
 					 GlobalGraphic.character=new Color(247,171,171);
 					 GlobalGraphic.path="images/MainFrame/Apeach/";
 				}
-				*/
+				
 				if(levelbtn==null){
 					JOptionPane.showMessageDialog(null, "레벨을 선택해주세요", "경고!",JOptionPane.WARNING_MESSAGE);
 					return;
 				}
 				
-				switch(levelbtn){
+				/*switch(levelbtn){
 					case "levelBtn1": level=1;speed=10; break;
 					case "levelBtn2": level=5;speed=20; break;
 					case "levelBtn3": level=10;speed=30; break;
-				}
+				}*/
 				
 				
-		/*		if(levelbtn.equals("levelBtn1"))
+				if(levelbtn.equals("levelBtn1"))
 				{
 					 level=1;speed=10;
 				}
@@ -125,7 +125,7 @@ public class SubmitPanel extends JPanel{
 				else if(levelbtn.equals("levelBtn3"))
 				{
 					level=10;speed=30;
-				}*/
+				}
 				
 				MainFrame.mf.setContentPane(MainFrame.mf.playPanel=new PlayPanel(user,character,level,speed));
 			}

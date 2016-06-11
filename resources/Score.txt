@@ -1,4 +1,6 @@
-Muzi	muzi	60
-Lyan	rion	30
-Apeach	apich	20
-Lyan	s	100
+MUZI	aaa
+LYAN	bbbbb
+LYAN	cccc
+LYAN	dddd
+LYAN	123
+LYAN	cccc	50

@@ -1,5 +1,10 @@
 package PlayPanel;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Vector;
@@ -71,6 +76,8 @@ public class Play {
 	public void stopGame(){
 		speedAni.interrupt();
 		makeWord.interrupt();
+		writeFinal();
+		
 		for (int i = 0; i < fallingAniArray.size(); i++)
 			fallingAniArray.get(i).interrupt();
 		new ScoreFrame(	MainFrame.mf.playPanel);
@@ -91,7 +98,35 @@ public class Play {
 		for (int i = 0; i < fallingAniArray.size(); i++)
 			fallingAniArray.get(i).resume();
 	}
-
+	
+	public void writeFinal() {
+		
+		try{
+			BufferedWriter out = new BufferedWriter(new FileWriter("resources/Score.txt",true));
+			BufferedReader in2 = new BufferedReader(new FileReader("resources/User.txt"));
+			
+			String name=MainFrame.mf.playPanel.userInfo.getUser();
+			String ch=" ";
+			
+			String s;
+			
+		while ((s = in2.readLine()) != null) {
+			String[] split = s.split("\t");
+			if(split[1].equals(name)){
+				ch=split[0];
+			}
+		}
+		
+		out.write(ch+'\t'+name+'\t'+score);
+		out.newLine();
+		in2.close();
+		out.close();
+		}
+		catch(IOException e){
+			return ;
+		}
+	
+	}
 	class SpeedAni extends Thread {
 		public void run() {
 			NumberFormat numberFormat = new DecimalFormat("##.##");
