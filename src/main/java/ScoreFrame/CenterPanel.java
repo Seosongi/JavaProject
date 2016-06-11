@@ -10,8 +10,10 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 import Graphics.GameFontB;
+import Graphics.GameFontP;
 import Graphics.GlobalGraphic;
 import Graphics.GraphicPanel;
 import PlayPanel.PlayPanel;
@@ -20,8 +22,10 @@ import PlayPanel.PlayPanel;
 
 class CenterPanel extends JPanel{
 	String path="images/ScoreFrame/CenterPanel/";
-
-		CenterPanel(){
+	public PlayPanel p;
+	
+		CenterPanel(PlayPanel p){
+			this.p=p;
 			setVisible(true);
 			setBackground(GlobalGraphic.basic);
 			setLayout(null);
@@ -71,7 +75,7 @@ class CenterPanel extends JPanel{
 				
 				for(int i=0;i<num;i++){
 				
-				gradeImg[i]=new ImageIcon(path+"등수.png");
+				gradeImg[i]=new ImageIcon(path+"트로피.png");
 				gradeLabel[i]=new JLabel(gradeImg[i]);
 				
 				name=ScoreFrame.sf.fIO.Users.get(i).getName();
@@ -87,20 +91,16 @@ class CenterPanel extends JPanel{
 				scores[i].setLocation(240, i*100);
 				scores[i].setFont(new GameFontB(15));
 
-				
 				faceLabel[i].setSize(100,100);
 				faceLabel[i].setLocation(10,i*100);
 				
 				gradeLabel[i].setSize(100,100);
 				gradeLabel[i].setLocation(85,i*100);
-				
-
+			
 				nameLabel[i]=new JLabel(name);
 				nameLabel[i].setSize(100,100);
 				nameLabel[i].setLocation(180, i*100);
 				nameLabel[i].setFont(new GameFontB(15));
-				
-			
 			
 				add(faceLabel[i]);
 				add(gradeLabel[i]);
@@ -111,18 +111,57 @@ class CenterPanel extends JPanel{
 		}//GradePanel end
 	
 	class MyGradePanel extends JPanel{
-		String path="images/ScoreFrame/CenterPanel/";
-		
+	
 		MyGradePanel(){
 			setVisible(true);
 			setBackground(Color.white);
-			setLayout(new BorderLayout());
+			setLayout(null);
 			
-			setSize(380,400);
-			setLocation(370,50);
+			setSize(390,400);
+			setLocation(370,30);
+		
+			setMyGrade();
 			
-			JLabel info=new JLabel("나의 점수는?",JLabel.CENTER);
-			add(info,BorderLayout.NORTH);
+			
+			
+		}
+		
+		public void setMyGrade(){
+		
+			/*	스레드 문제 - Exception in thread "main" java.lang.NullPointerException 
+			 * playpanel 의 값을 받아올수 없음 
+			 * String myCharacter = p.getCharacter();
+			Integer myScore=p.getScore();
+			String myName=p.getName();
+			Integer myLevel=p.getLavel();
+			*/
+			
+			String myCharacter="APEACH"; //캐릭터 이미지
+			ImageIcon myChimage = new ImageIcon(path+myCharacter+"스코어.gif");
+			JLabel myChLabel=new JLabel(myChimage);
+			myChLabel.setLocation(130, 50);
+			myChLabel.setSize(130,130);
+			
+			Integer myScore=new Integer(300); //스코어점수
+			JLabel myScoreLabel=new JLabel(myScore.toString());
+			myScoreLabel.setLocation(150,210);
+			myScoreLabel.setSize(150,60);
+			myScoreLabel.setFont(new GameFontB(50));
+			myScoreLabel.setForeground(Color.RED);
+			
+			String myName="s"; //캐릭터 이름 + 레벨
+			Integer myLavel=new Integer(2);
+			JLabel myInfoLabel=new JLabel("userName : "+myName+" /  " + "userLevel : "+myLavel.toString());
+			myInfoLabel.setFont(new GameFontP(20));
+			myInfoLabel.setLocation(50, 300);
+			myInfoLabel.setSize(300,50);
+			
+			add(myChLabel);
+			add(myScoreLabel);
+			add(myInfoLabel);
+			
+		
+			
 		}
 	}//MyGradePanel end
 	

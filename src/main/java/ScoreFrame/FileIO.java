@@ -8,12 +8,14 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import PlayPanel.PlayPanel;
+
 	public class FileIO {
-		
+		public PlayPanel p;
 		public static List<UserInfo> Users = new ArrayList<UserInfo>();
 	
-		FileIO() {
-			
+		FileIO(PlayPanel p) {
+			this.p=p;
 			try {
 				readPlayer();
 				sortGrade();
@@ -42,6 +44,7 @@ import java.util.List;
 			in.close();
 		
 		}
+		
 		
 		void sortGrade() throws IOException{//점수 순서대로 정렬 
 			Collections.sort(Users, new NoDescCompare());
