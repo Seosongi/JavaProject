@@ -119,13 +119,14 @@ public class PlayPanel extends JPanel{
 		}
 	} 
 	
-	@SuppressWarnings("deprecation")
 	public void setStop(){
 		this.play=false;
-		speedAni.interrupted();
-		run.interrupted();		
-		for(int i=0; i<fallingAniArray.size(); i++)
-			fallingAniArray.get(i).interrupted();	
+		speedAni.suspend();
+		run.suspend();	
+		
+		for(int i=0; i<fallingAniArray.size(); i++) {
+			fallingAniArray.get(i).suspend();	
+		}
 	}
 	
 	@SuppressWarnings("deprecation")
@@ -150,6 +151,7 @@ public class PlayPanel extends JPanel{
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
+					
 				}
 			}
 		}
@@ -166,6 +168,7 @@ public class PlayPanel extends JPanel{
 					 sleep(4000);
 				}
 				catch (InterruptedException e) {
+					
 					e.printStackTrace();
 				}
 			}
@@ -202,6 +205,7 @@ public class PlayPanel extends JPanel{
 				}				
 				catch (InterruptedException e) {
 						e.printStackTrace();
+					
 				}					
 			}
 				
