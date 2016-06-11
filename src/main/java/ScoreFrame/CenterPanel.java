@@ -27,7 +27,13 @@ class CenterPanel extends JPanel{
 		CenterPanel(PlayPanel p){
 			this.p=p;
 			setVisible(true);
-			setBackground(GlobalGraphic.basic);
+			
+			//character 못받아옴 - Test
+			//GlobalGraphic.character=new Color(215,209,137);
+			GlobalGraphic.character=new Color(247,171,171);	
+			//GlobalGraphic.character=new Color(255,233,13);
+			setBackground(GlobalGraphic.character);
+			
 			setLayout(null);
 			setPreferredSize(new Dimension(500,420));
 			
@@ -147,7 +153,7 @@ class CenterPanel extends JPanel{
 			myScoreLabel.setLocation(150,210);
 			myScoreLabel.setSize(150,60);
 			myScoreLabel.setFont(new GameFontB(50));
-			myScoreLabel.setForeground(Color.RED);
+			myScoreLabel.setForeground(new Color(55,211,0));
 			
 			String myName="s"; //캐릭터 이름 + 레벨
 			Integer myLavel=new Integer(2);
