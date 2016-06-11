@@ -29,17 +29,17 @@ class CenterPanel extends JPanel{
 		
 	class GradePanel extends JPanel{
 			String path="images/ScoreFrame/CenterPanel/";
-			int num=3;//전체 화면에 표시할 등수 표시 갯수
+			int num=4;//전체 화면에 표시할 등수 표시 갯수
 			
 			GradePanel(){
 				setVisible(true);
-				setBackground(Color.white);
-				setLayout(new GridLayout(num,4,5,5));
+				setBackground(Graphics.GlobalGraphic.basic);
+				setLayout(null);
 				
 				setGrade();
 				
 				setSize(300,400);
-				setLocation(50,50);
+				setLocation(30,30);
 
 			}
 			
@@ -70,20 +70,25 @@ class CenterPanel extends JPanel{
 				
 				System.out.println(faceType);
 			
-				nameLabel[i]=new JLabel(name);
 				scores[i]=new JLabel(ScoreFrame.sf.fIO.Users.get(i).getScore().toString());
+				scores[i].setSize(100,100);
+				scores[i].setLocation(240, i*100);
+				scores[i].setFont(new Graphics.GameFontB(15));
 
-//				faceLabel[i].setSize(100,100);
-//				faceLabel[i].setLocation(100,100+i*100);
-//				
-//				gradeLabel[i].setSize(100,100);
-//				gradeLabel[i].setLocation(200,100+i*100);
-//				
-//				nameLabel[i].setSize(100,100);
-//				nameLabel[i].setLocation(300, 100+i*100);
-//				
-//				scores[i].setSize(100,100);
-//				scores[i].setLocation(350, 100+i*100);
+				
+				faceLabel[i].setSize(100,100);
+				faceLabel[i].setLocation(0,i*100);
+				
+				gradeLabel[i].setSize(100,100);
+				gradeLabel[i].setLocation(70,i*100);
+				
+
+				nameLabel[i]=new JLabel(name);
+				nameLabel[i].setSize(100,100);
+				nameLabel[i].setLocation(180, i*100);
+				nameLabel[i].setFont(new Graphics.GameFontB(15));
+				
+			
 			
 				add(faceLabel[i]);
 				add(gradeLabel[i]);
