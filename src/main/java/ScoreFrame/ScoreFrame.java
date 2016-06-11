@@ -25,6 +25,7 @@ public class ScoreFrame extends JFrame{
 			
 			fIO=new FileIO();
 			
+			
 			String npPath="images/ScoreFrame/NorthPanel/";
 			NorthPanel north=new NorthPanel(npPath,"Background",800,60);
 			CenterPanel center=new CenterPanel();

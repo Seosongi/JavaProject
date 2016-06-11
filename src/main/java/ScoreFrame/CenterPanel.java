@@ -3,46 +3,58 @@ package ScoreFrame;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Graphics;
 import java.awt.GridLayout;
+import java.awt.Image;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import Graphics.GameFontB;
 import Graphics.GlobalGraphic;
+import Graphics.GraphicPanel;
+import PlayPanel.PlayPanel;
+
 
 
 class CenterPanel extends JPanel{
-	
+	String path="images/ScoreFrame/CenterPanel/";
+
 		CenterPanel(){
 			setVisible(true);
-			setBackground(GlobalGraphic.character);
+			setBackground(GlobalGraphic.basic);
 			setLayout(null);
 			setPreferredSize(new Dimension(500,420));
 			
-			GradePanel gp=new GradePanel();
+			GradePanel gp=new GradePanel(path,"frame",300,400,this);
 			MyGradePanel mgp=new MyGradePanel();
 			add(gp);
 			add(mgp);
 			
+			
+			
 		}
 		
-	class GradePanel extends JPanel{
-			String path="images/ScoreFrame/CenterPanel/";
+	class GradePanel extends GraphicPanel{
+			
 			int num=4;//전체 화면에 표시할 등수 표시 갯수
 			
-			GradePanel(){
+			public GradePanel(String path, String FILENAME, int width, int height,CenterPanel p ){
+				super(path,FILENAME,width,height);
+				
 				setVisible(true);
-				setBackground(Graphics.GlobalGraphic.basic);
+				setBackground(Color.white);
+				
 				setLayout(null);
 				
 				setGrade();
 				
 				setSize(300,400);
 				setLocation(30,30);
-
+				
 			}
-			
+		
 			void setGrade(){
 			
 			ImageIcon images[]=new ImageIcon[num];
@@ -73,20 +85,20 @@ class CenterPanel extends JPanel{
 				scores[i]=new JLabel(ScoreFrame.sf.fIO.Users.get(i).getScore().toString());
 				scores[i].setSize(100,100);
 				scores[i].setLocation(240, i*100);
-				scores[i].setFont(new Graphics.GameFontB(15));
+				scores[i].setFont(new GameFontB(15));
 
 				
 				faceLabel[i].setSize(100,100);
-				faceLabel[i].setLocation(0,i*100);
+				faceLabel[i].setLocation(10,i*100);
 				
 				gradeLabel[i].setSize(100,100);
-				gradeLabel[i].setLocation(70,i*100);
+				gradeLabel[i].setLocation(85,i*100);
 				
 
 				nameLabel[i]=new JLabel(name);
 				nameLabel[i].setSize(100,100);
 				nameLabel[i].setLocation(180, i*100);
-				nameLabel[i].setFont(new Graphics.GameFontB(15));
+				nameLabel[i].setFont(new GameFontB(15));
 				
 			
 			
